@@ -6,7 +6,7 @@
 # commands such as:
 #     nix-build -A mypackage
 
-{ pkgs ? import <nixpkgs> { } }:
+{ pkgs ? import (builtins.getFlake (toString ./.)).inputs.nixpkgs { } }:
 
 rec {
   # The `lib`, `modules`, and `overlay` names are special
