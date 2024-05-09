@@ -9,13 +9,13 @@ let
 in
 stdenv.mkDerivation rec {
   pname = "l8w8jwt-dev";
-  version = "2.1.7";
+  version = "2.3.2";
   src = fetchFromGitHub {
     owner = "GlitchedPolygons";
     repo = "l8w8jwt";
     rev = "${version}";
     fetchSubmodules = true;
-    sha256 = "sha256-HpTHdCEyk3Jk2/zPCCASgp7jo/RiN5AXkxK/Ma9Srig=";
+    sha256 = "sha256-mwkPsZni4a7h6G+/qSXzHtGtJC0UC7uB5p7Yx/AWqNE=";
   };
 
   nativeBuildInputs = [ cmake ];

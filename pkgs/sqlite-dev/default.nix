@@ -3,18 +3,25 @@
 let
  cc = stdenv.cc;
  mylib = import ../../lib { inherit pkgs; };
+ # from nixpkgs
+ archiveVersion = version:
+    let
+      fragments = lib.splitVersion version;
+      major = lib.head fragments;
+      minor = lib.concatMapStrings (lib.fixedWidthNumber 2) (lib.tail fragments);
+    in
+    major + minor + "00";
 in
 stdenv.mkDerivation rec {
   pname = "sqlite-dev";
-  version = "3.42.0";
+  version = "3.45.3";
 
   src = with lib; let
-    relYear = "2023";
-    vstr = concatStrings (splitVersion version);
-    finalvstr = substring 0 7 (vstr + "0000000");
+    relYear = "2024";
+    finalvstr = archiveVersion version;
   in fetchurl {
     url = "https://www.sqlite.org/${relYear}/sqlite-autoconf-${finalvstr}.tar.gz";
-    sha256 = "sha256-erz9FhxuJ0LKXGwIldH4U8lA8gMwSgtJ2k4eyl0IjKY=";
+    sha256 = "sha256-soCcpTEkwZxg9Cv2J3NurgEa/cwgW7SCcKXumjgZFTE=";
   };
 
   buildInputs = [ cc ];
