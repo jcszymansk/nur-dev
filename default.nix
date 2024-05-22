@@ -22,6 +22,7 @@ rec {
   civetweb-dev = pkgs.callPackage ./pkgs/civetweb-dev { };
   sqlite-dev = pkgs.callPackage ./pkgs/sqlite-dev { };
   cjson-dev = pkgs.callPackage ./pkgs/cjson-dev { };
+  cmocka-dev = pkgs.callPackage ./pkgs/cmocka-dev { };
 
 
 
