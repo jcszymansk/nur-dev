@@ -2,7 +2,6 @@
 
 let
  cc = stdenv.cc;
- mylib = import ../../lib { inherit pkgs; };
  # from nixpkgs
  archiveVersion = version:
     let
@@ -50,8 +49,6 @@ stdenv.mkDerivation rec {
   preFixup = ''
     rm -r $out/bin $out/share
   '';
-
-  setupHook = mylib.mkStaticSetupHook [ "sqlite3" ];
 
   meta = {
     description = "SQLite is a software library that provides a relational database management system.";

@@ -4,9 +4,6 @@
 , cmake
 , ... }:
 
-let
-  mylib = import ../../lib { inherit pkgs; };
-in
 stdenv.mkDerivation rec {
   pname = "l8w8jwt-dev";
   version = "2.3.2";
@@ -37,5 +34,4 @@ stdenv.mkDerivation rec {
     cp libl8w8jwt.a $out/lib
   '';
 
-  setupHook = mylib.mkStaticSetupHook [ "l8w8jwt" "mbedtls" ];
 }
