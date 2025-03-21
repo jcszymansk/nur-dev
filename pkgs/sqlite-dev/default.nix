@@ -13,14 +13,14 @@ let
 in
 stdenv.mkDerivation rec {
   pname = "sqlite-dev";
-  version = "3.45.3";
+  version = "3.49.1";
 
-  src = with lib; let
-    relYear = "2024";
+  src = let
+    relYear = "2025";
     finalvstr = archiveVersion version;
   in fetchurl {
     url = "https://www.sqlite.org/${relYear}/sqlite-autoconf-${finalvstr}.tar.gz";
-    sha256 = "sha256-soCcpTEkwZxg9Cv2J3NurgEa/cwgW7SCcKXumjgZFTE=";
+    sha256 = "sha256-EGZC2MyzbF9zI7ZOQVLptxn3wCFaz1v+rD1ef5e1klQ=";
   };
 
   buildInputs = [ cc ];
